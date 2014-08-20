@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, PNDelegate {
     @IBOutlet var statusMenu: NSMenu!
     var statusItem: NSStatusItem
     
@@ -25,7 +25,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification?)
     {
+        PubNub.setDelegate(self)
         updateStatusItem()
+        println("HI")
     }
 
     func updateStatusItem()
